@@ -14,3 +14,4 @@ usethis::create_github_token() ## Abrirá una página web, escoje un nombre úni
 gitcreds::gitcreds_set() ## Ojo, copia el token, no tu password de git!
 ## Si no, terminaras en la situación descrita en
 ## https://github.com/r-lib/usethis/issues/1347
+
