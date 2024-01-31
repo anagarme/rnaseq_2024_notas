@@ -1,17 +1,22 @@
-#RStudio proyect
-# Abrir un archivo de notas
+
+# Crear este proyecto
 usethis::create_project("~/rnaseq_2024_notas")
+
+# Hacer un archivo de notas
 usethis::use_r("01-notas.R")
 
-# Ejercicio 2
+# Segundo ejercicio
 usethis::use_r("02-visualizar-mtcars.R")
 
-# Configurar GitHub
-## Para poder conectar tu compu con GitHub
-usethis::create_github_token() ## Abrirá una página web, escoje un nombre único
-## y luego da click en el botón verde al final. Después copia el token
-## (son 40 caracteres)
-gitcreds::gitcreds_set() ## Ojo, copia el token, no tu password de git!
-## Si no, terminaras en la situación descrita en
-## https://github.com/r-lib/usethis/issues/1347
+# Conectar el ordenador con GitHub
+usethis::create_github_token()
+#Recomendación: Introduce el token de 40 caracteres obtenido no tu contraseña
+gitcreds::gitcreds_set()
+
+# Configurar mi usuario de GitHub
+usethis::edit_git_config()
+
+# Inicializar el repositorio
+usethis::use_git()
+usethis::use_github()
 
