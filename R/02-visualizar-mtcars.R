@@ -3,7 +3,7 @@ library("here")
 library("ggplot2")
 
 ## Hello world
-print("Soy Sol")
+print("Hola, soy Sol")
 
 ## Directorios
 dir_plots <- here::here("figuras")
@@ -21,9 +21,10 @@ ggplot(mtcars, aes(group = gear, y = mpg)) +
   geom_boxplot()
 dev.off()
 
-## Para reproducir mi código
+## Para reproducir el código
 options(width = 120)
 sessioninfo::session_info()
+
 
 # ─ Session info ───────────────────────────────────────────────────────────────────────────────────────────────────────
 # setting  value
