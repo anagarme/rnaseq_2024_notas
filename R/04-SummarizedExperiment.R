@@ -68,8 +68,7 @@ dimnames(rse
 # Consultar los nombres de las tablas con las cuentas
 assayNames(rse)
 #
-## Ejercicio
-#
+## Ejercicio 3.2
 #
 ## Caso 1
 rse[1:2, ]
@@ -110,12 +109,20 @@ rse[, c("A", "D", "F")]
 ## Cargar el paquete
 library(iSEE)
 ## Explorar el objeto rse
-iSEE::iSEE(sce_layer)
-## Ejercicio
+iSEE::iSEE(rse)
+#
+#
+## Ejercicio con spatialLIBD
 ## Descargar los datos de spatialLIBD
 sce_layer <- spatialLIBD::fetch_data("sce_layer")
 iSEE::iSEE(sce_layer)
+## 1. Reproducir la imagen.
+## Ver imagen "Ejercicio3.4"
+## Heatmap de la expresión de los genes MOBP, MBP y PCP4. Si se hace un clustering, ¿cuáles genes se parecen más?
+## ID de los genes:
+## ENSG00000168314 MOBP
+## ENSG00000197971 MBP
+## ENSG00000183036 PC4
+## Los genes que más se parecen son MOBP y MBP, posiblemente porque se expresan más
+## en las capa de la sustancia blanca del cerebro (WM).
 
-ENSG00000168314
-ENSG00000197971
-ENSG00000183036
