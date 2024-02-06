@@ -1,23 +1,17 @@
 # Procesar datos de expresión a través de recount3
-#
-# rnaseqGene es un paquete para trabajar con los datos de expresión de
-# RNA seq.
-#
-# Paquete SummarizedExperiment
-#
-# Es un paquete de R. Es una matriz que contiene
-# en las filas los rangos genómicos de
-# interés y las columnas represetan las muestras.
-#
-# Componentes:
-# rowRanges es la tabla con la información de los genes.
-# colData contiene la información de las muestras.
-# assay contiene la matriz con las cuentas. El número de
-# renglones que tiene es equivalente al tamaño de rowRanges y el
-# número de columnas es igual al de colData.
-#
-# Ejemplos de la ayuda oficial
-#
+##
+## rnaseqGene es un paquete para trabajar con los datos de expresión de RNA-seq.
+##
+## Paquete SummarizedExperiment
+## Es un paquete de R. Es una matriz que contiene en las filas los rangos genómicos de
+## interés y las columnas represetan las muestras.
+## Componentes:
+##              rowRanges es la tabla con la información de los genes.
+##              colData contiene la información de las muestras.
+##              assay contiene la matriz con las cuentas. El número de renglones que tiene
+##              es equivalente al tamaño de rowRanges y el número de columnas es igual al de colData.
+##
+## Ejemplos de la ayuda oficial
 library("SummarizedExperiment")
 ## Crear los datos para nuestro objeto de tipo SummarizedExperiment
 ## Definir el tamaño de los datos
@@ -35,7 +29,7 @@ rowRanges <- GenomicRanges::GRanges(
                   replace = TRUE),
   feature_id = sprintf("ID%03d", 1:200)
 )
-#runif random uniform, valores random con una distribución uniforme
+## runif random uniform, valores random con una distribución uniforme
 names(rowRanges) <- paste0("gene_", seq_len(length(rowRanges)))
 ## Información de nuestras muestras
 colData <- DataFrame(
@@ -49,34 +43,19 @@ rse <- SummarizedExperiment(
   colData = colData
 )
 rse
-
-# class: RangedSummarizedExperiment
-# dim: 200 6
-# metadata(0):
-#   assays(1): counts
-# rownames(200): gene_1 gene_2 ... gene_199
-# gene_200
-# rowData names(1): feature_id
-# colnames(6): A B ... E F
-# colData names(1): Treatment
-#
-# Ejemplos
-# Explorar dimensiones
+## Ejemplos
+## Explorar dimensiones
 dim(rse)
 ## IDs de nuestros genes y muestras
 dimnames(rse
-# Consultar los nombres de las tablas con las cuentas
+## Consultar los nombres de las tablas con las cuentas
 assayNames(rse)
-#
+##
 ## Ejercicio 3.2
-#
 ## Caso 1
 rse[1:2, ]
-# Como rse es un objeto, esta línea toma las filas
-# de 1 a 2, en el espacio de las columnas toma todas
-# las columnas. Por eso en rownames nos muestra las filas
-# gene_1 y gene_2.
-
+## Como rse es un objeto, esta línea toma las filas de 1 a 2, en el espacio de las columnas toma todas
+## las columnas. Por eso en rownames nos muestra las filas gene_1 y gene_2.
 # class: RangedSummarizedExperiment
 # dim: 2 6
 # metadata(0):
@@ -85,13 +64,11 @@ rse[1:2, ]
 # rowData names(1): feature_id
 # colnames(6): A B ... E F
 # colData names(1): Treatment
-
+##
 ## Caso 2
 rse[, c("A", "D", "F")]
-
-# En este se extrae sólo las columnas que son nombradas
-# como "A", "D" y "F", omitiendo las demás.
-
+##
+## En este se extrae sólo las columnas que son nombradas como "A", "D" y "F" omitiendo las demás.
 # class: RangedSummarizedExperiment
 # dim: 200 3
 # metadata(0):
@@ -101,17 +78,17 @@ rse[, c("A", "D", "F")]
 # rowData names(1): feature_id
 # colnames(3): A D F
 # colData names(1): Treatment
-#
+##
+##
 ## iSEE
 ## Es un paquete que permite explorar de una forma más visual los datos almacenados
-## en objetos de tipo SummarizedExperiment. Permite hacer plots, tablas y muchas cosas
-## más muy útiles.
+## en objetos de tipo SummarizedExperiment. Permite hacer plots, tablas y muchas cosas más muy útiles.
 ## Cargar el paquete
 library(iSEE)
 ## Explorar el objeto rse
 iSEE::iSEE(rse)
-#
-#
+##
+##
 ## Ejercicio con spatialLIBD
 ## Descargar los datos de spatialLIBD
 sce_layer <- spatialLIBD::fetch_data("sce_layer")
